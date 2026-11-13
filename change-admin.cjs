@@ -8,19 +8,23 @@ const { Pool } = require("pg");
     connectionString: process.env.DATABASE_URL,
   });
 
-  const username = "universaladmin";
-  const password = "Universal@2026";
+  const username = "Memorableadmin";
+  const password = "Memorable@2026";
 
   const hash = crypto
     .createHash("sha256")
     .update(password + "ua_salt_2024")
     .digest("hex");
 
-  await pool.query(
-    "UPDATE admins SET username = $1, password_hash = $2 WHERE username = $3",
-    [username, hash, "admin"]
+  const result = await pool.query(
+    "UPDATE admins SET username = $1, password_hash = $2 WHERE username IN ($3, $4, $5)",
+    [username, hash, "admin", "universaladmin", username]
   );
 
-  console.log("✅ Username & Password Updated");
+  if (result.rowCount === 0) {
+    throw new Error("No matching admin account found; credentials were not changed.");
+  }
+
+  console.log("✅ Admin credentials updated");
   await pool.end();
 })();

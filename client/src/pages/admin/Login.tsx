@@ -50,7 +50,7 @@ export default function Login() {
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 to-secondary/70" />
         <div className="absolute inset-0 flex flex-col items-start justify-end p-16">
           <span className="text-primary text-xs font-medium tracking-[0.3em] uppercase mb-4">Admin Portal</span>
-          <h1 className="text-5xl font-serif text-white mb-4 leading-tight">Universal<br />Agencies</h1>
+          <h1 className="text-5xl font-serif text-white mb-4 leading-tight">Memorable<br />Events</h1>
           <p className="text-white/60 text-lg max-w-sm leading-relaxed">
             Shimla's premier event management platform. Manage bookings, content, and clients from one place.
           </p>
@@ -88,7 +88,7 @@ export default function Login() {
                   <FormLabel className="text-xs uppercase tracking-widest text-muted-foreground">Username</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="admin"
+                      placeholder="Memorableadmin"
                       autoComplete="username"
                       className="rounded-none h-12 border-border focus-visible:border-primary"
                       {...field}
